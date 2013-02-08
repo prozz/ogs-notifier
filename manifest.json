@@ -1,0 +1,18 @@
+{
+  "name": "Nova Notifier",
+  "description": "Notifications from nova.gs Go server",
+  "version": "1",
+  "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "http://nova.gs/*",
+    "https://ajax.googleapis.com/*"
+  ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_icon": "icon_60.png"
+  }
+}
