@@ -45,7 +45,7 @@ function updateAwaitingGames(notifications) {
 }
 
 chrome.browserAction.onClicked.addListener(openGames);
-window.setInterval(checkForGames, 3000);
+window.setInterval(checkForGames, 60000);
 
 var chatAtStartup = localStorage['chatAtStartup'];
 if (chatAtStartup == "true") {
