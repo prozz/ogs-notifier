@@ -3,7 +3,13 @@ var boardsToMove;
 var gamesToOpen = [];
 
 function openGames() {
-    if (gamesToOpen.length == 0) {
+    var chatAtGamesOpen = localStorage['chatAtGamesOpen'];
+    if (chatAtGamesOpen == "true") {
+        chrome.tabs.create({url: "http://nova.gs/chat"});
+    }
+
+    var open = localStorage['open'];
+    if (gamesToOpen.length == 0 || open == null || open == 'summary') {
         chrome.tabs.create({url: "http://nova.gs/"});
         return;
     }
@@ -39,4 +45,9 @@ function updateAwaitingGames(notifications) {
 }
 
 chrome.browserAction.onClicked.addListener(openGames);
-window.setInterval(checkForGames, 60000);
+window.setInterval(checkForGames, 3000);
+
+var chatAtStartup = localStorage['chatAtStartup'];
+if (chatAtStartup == "true") {
+    chrome.tabs.create({url: "http://nova.gs/chat"});
+}
