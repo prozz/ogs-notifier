@@ -12,8 +12,8 @@ function saveOptions() {
 }
 
 function restoreOptions() {
-  var open = getFromStorage("open", "allGames");
-  $('#open.'+open).attr('checked', 'checked');
+  var open = getFromStorage("open", "summary");
+  $('#'+open).prop('checked', 'checked');
 
   var chatAtStartup = getFromStorage("chatAtStartup", "false");
   setCheckboxValue("chatAtStartup", chatAtStartup);
