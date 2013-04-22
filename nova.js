@@ -16,7 +16,10 @@ function openGames() {
 
     for (var i = 0; i < gamesToOpen.length; i++) {
         chrome.tabs.create({url: "http://nova.gs/game/" + gamesToOpen[i]});
+        if ( open == 'firstGame' )
+            break;
     }
+    
     gamesToOpen = []
     chrome.browserAction.setBadgeText({text: ""});
 }
