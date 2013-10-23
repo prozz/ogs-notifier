@@ -1,4 +1,4 @@
-nova-notifier
+ogs-notifier
 =============
 
 Chrome plugin for easy notifications from http://online-go.com Go server. 
