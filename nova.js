@@ -5,17 +5,17 @@ var gamesToOpen = [];
 function openGames() {
     var chatAtGamesOpen = localStorage['chatAtGamesOpen'];
     if (chatAtGamesOpen == "true") {
-        chrome.tabs.create({url: "http://nova.gs/chat"});
+        chrome.tabs.create({url: "http://online-go.com/chat"});
     }
 
     var open = localStorage['open'];
     if (gamesToOpen.length == 0 || open == null || open == 'summary') {
-        chrome.tabs.create({url: "http://nova.gs/"});
+        chrome.tabs.create({url: "http://online-go.com/"});
         return;
     }
 
     for (var i = 0; i < gamesToOpen.length; i++) {
-        chrome.tabs.create({url: "http://nova.gs/game/" + gamesToOpen[i]});
+        chrome.tabs.create({url: "http://online-go.com/game/" + gamesToOpen[i]});
         if (open == 'firstGame') {
             break;
         }
@@ -26,7 +26,7 @@ function openGames() {
 }
 
 function checkForGames() {
-    $.get("http://nova.gs/api/0/notifications", updateAwaitingGames, "json")
+    $.get("http://online-go.com/api/0/notifications", updateAwaitingGames, "json")
 }
 
 
@@ -49,9 +49,15 @@ function updateAwaitingGames(notifications) {
 }
 
 chrome.browserAction.onClicked.addListener(openGames);
+
+console.info("setting game check interval to 1 minute");
 window.setInterval(checkForGames, 60000);
 
 var chatAtStartup = localStorage['chatAtStartup'];
 if (chatAtStartup == "true") {
-    chrome.tabs.create({url: "http://nova.gs/chat"});
+    chrome.tabs.create({url: "http://online-go.com/chat"});
 }
+
+// do initial check for games
+checkForGames();
+console.info("started");
