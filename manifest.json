@@ -1,6 +1,6 @@
 {
-  "name": "Nova Notifier",
-  "description": "Notifications from nova.gs Go server",
+  "name": "OGS Notifier",
+  "description": "Notifications from online-go.com Go server",
   "version": "1",
   "manifest_version": 2,
   "permissions": [
