@@ -26,7 +26,7 @@ function openGames() {
 }
 
 function checkForGames() {
-    $.get("http://online-go.com/api/0/notifications", updateAwaitingGames, "json")
+    $.get("http://online-go.com/api/v1/me/notifications", updateAwaitingGames, "json")
 }
 
 
