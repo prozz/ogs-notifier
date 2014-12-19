@@ -5,7 +5,7 @@
   "manifest_version": 2,
   "permissions": [
     "tabs",
-    "http://online-go.com/*"
+    "https://online-go.com/*"
   ],
   "background": {
     "page": "background.html"

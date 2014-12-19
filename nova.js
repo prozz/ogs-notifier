@@ -5,17 +5,17 @@ var gamesToOpen = [];
 function openGames() {
     var chatAtGamesOpen = localStorage['chatAtGamesOpen'];
     if (chatAtGamesOpen == "true") {
-        chrome.tabs.create({url: "http://online-go.com/chat"});
+        chrome.tabs.create({url: "https://online-go.com/chat"});
     }
 
     var open = localStorage['open'];
     if (gamesToOpen.length == 0 || open == null || open == 'summary') {
-        chrome.tabs.create({url: "http://online-go.com/"});
+        chrome.tabs.create({url: "https://online-go.com/"});
         return;
     }
 
     for (var i = 0; i < gamesToOpen.length; i++) {
-        chrome.tabs.create({url: "http://online-go.com/game/" + gamesToOpen[i]});
+        chrome.tabs.create({url: "https://online-go.com/game/" + gamesToOpen[i]});
         if (open == 'firstGame') {
             break;
         }
@@ -26,7 +26,7 @@ function openGames() {
 }
 
 function checkForGames() {
-    $.get("http://online-go.com/api/v1/me/notifications", updateAwaitingGames, "json")
+    $.get("https://online-go.com/api/v1/me/notifications", updateAwaitingGames, "json")
 }
 
 
@@ -55,7 +55,7 @@ window.setInterval(checkForGames, 60000);
 
 var chatAtStartup = localStorage['chatAtStartup'];
 if (chatAtStartup == "true") {
-    chrome.tabs.create({url: "http://online-go.com/chat"});
+    chrome.tabs.create({url: "https://online-go.com/chat"});
 }
 
 // do initial check for games
